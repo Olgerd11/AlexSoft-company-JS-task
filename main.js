@@ -1,15 +1,9 @@
 'use strict';
+/* =========== making random letters ============ */
 
-/* =========== making random letters */
+const allOptions = document.querySelectorAll('option');
 
-const firstOption = document.querySelector('#opt1');
-const secondOption = document.querySelector('#opt2');
-const thirdOption = document.querySelector('#opt3');
-const fourthOption = document.querySelector('#opt4');
-const fifthOption = document.querySelector('#opt5');
-const sixthOption = document.querySelector('#opt6');
-
-const generateLetters = () => {
+function generateLetters() {
 	const alfabet = 'abcdefghijklmnopqrstuvwxyz';
 	const letters = alfabet.split('');
 	const shortArray = [];
@@ -24,31 +18,23 @@ const generateLetters = () => {
 		j--;
 	}
 
-	firstOption.setAttribute('value', shortArray[0]);
-	secondOption.setAttribute('value', shortArray[1]);
-	thirdOption.setAttribute('value', shortArray[2]);
-	fourthOption.setAttribute('value', shortArray[3]);
-	fifthOption.setAttribute('value', shortArray[4]);
-	sixthOption.setAttribute('value', shortArray[5]);
+	let t = 0;
+	for (let i of allOptions) {
+		i.innerText = shortArray[t];
+		i.setAttribute('value', shortArray[t]);
+		t++;
+	}
+}
 
-	firstOption.innerText = shortArray[0];
-	secondOption.innerText = shortArray[1];
-	thirdOption.innerText = shortArray[2];
-	fourthOption.innerText = shortArray[3];
-	fifthOption.innerText = shortArray[4];
-	sixthOption.innerText = shortArray[5];
-};
+/* ============= created onload function =========== */
+
+document.addEventListener('DOMContentLoaded', generateLetters());
 
 /* ============= created fetch API =========== */
 
-const requestURL = 'list.json';
-
 async function getJsonData() {
-	const response = await fetch(requestURL);
+	const response = await fetch('list.json');
 	const data = await response.json();
-	console.log(data);
 }
 
-/* ============= working with form =========== */
-
-document.addEventListener('DOMContentLoaded', generateLetters());
+/* ============== generating json lists ============== */
