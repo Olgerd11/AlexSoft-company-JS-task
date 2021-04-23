@@ -3,7 +3,7 @@ h1 {
 	color: #0656af;
 }
 
-.conteiner {
+.container {
 	max-width: 900px;
 	margin: 0 auto;
 	background-color: #c0c1bb;
@@ -11,6 +11,7 @@ h1 {
 	flex-flow: column nowrap;
 	align-items: center;
 	padding-bottom: 100px;
+	height: 100vw;
 }
 
 form {
@@ -22,4 +23,20 @@ form {
 select {
 	min-width: 200px;
 	font-size: 24px;
+}
+
+ol {
+	font-size: 20px;
+	color: #1a3ef6;
+	font-family: Verdana, Tahoma, sans-serif;
+}
+
+p {
+	font-size: 24px;
+	color: rgb(238, 11, 11);
+	font-family: Verdana, Tahoma, sans-serif;
+	text-align: center;
+	padding: 100px;
+	position: relative;
+	top: -100px;
 }
