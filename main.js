@@ -2,15 +2,15 @@
 /* =========== making random letters ============ */
 
 const allOptions = document.querySelectorAll('option');
+const select = document.querySelector('select');
 
 function generateLetters() {
 	const alfabet = 'abcdefghijklmnopqrstuvwxyz';
 	const letters = alfabet.split('');
 	const shortArray = [];
 	let randomNumber;
-	let j = 25;
-	const nameList = [];
 
+	let j = 25;
 	for (let i = 0; i <= 5; i++) {
 		randomNumber = Math.round(Math.random() * j);
 		shortArray.push(letters[randomNumber]);
@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', generateLetters());
 async function getJsonData() {
 	const response = await fetch('list.json');
 	const data = await response.json();
+	console.log(this.children);
 }
 
-/* ============== generating json lists ============== */
+select.addEventListener('focus', getJsonData);
+
+select.addEventListener('change', getJsonData);
